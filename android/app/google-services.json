@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "509213265669",
+    "firebase_url": "https://snapv-fa36f.firebaseio.com",
+    "project_id": "snapv-fa36f",
+    "storage_bucket": "snapv-fa36f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509213265669:android:6caee78086747190",
+        "android_client_info": {
+          "package_name": "com.example.snapv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509213265669-902fm70j7leoe6f2lva1s0qpup7voti0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo5equ-DaLaAYsTcsJ9VwFJzaHjKiG16M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509213265669:android:d96c4852ff411945",
+        "android_client_info": {
+          "package_name": "com.yourcompany.snapvalet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509213265669-902fm70j7leoe6f2lva1s0qpup7voti0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo5equ-DaLaAYsTcsJ9VwFJzaHjKiG16M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
