@@ -14,14 +14,15 @@ class GetCarBack extends StatefulWidget {
 
 class GetCarBackState extends State<StatefulWidget> {
   var documentReference;
+
   /// DocumentReference docReference;
 
   @override
   void initState() {
     super.initState();
     // docReference = documentReference.document("imran");
-    documentReference = Firestore.instance.collection('valets').document("imran");
-
+    documentReference =
+        Firestore.instance.collection('valets').document("imran");
   }
 
   @override
@@ -29,28 +30,30 @@ class GetCarBackState extends State<StatefulWidget> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Track"),
-          leading: IconButton(icon: Icon(Icons.arrow_back), onPressed:()=> Navigator.of(context).pop()),
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => Navigator.of(context).pop()),
         ),
         bottomNavigationBar: getBottomAppBar(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: StreamBuilder(
             stream: documentReference.snapshots(),
             builder: (context, snapshots) {
-              //if (!snapshots.hasData) return const Text('Loading...');
+              if (!snapshots.hasData) return const Text('Loading...');
               return Center(
                 child: Container(
-                      decoration: BoxDecoration(
-                      image: DecorationImage(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
                       image: AssetImage("assets/images/map.jpg"),
                       fit: BoxFit.cover,
-                      ),
-                      ),
+                    ),
+                  ),
                   child: Container(
                     child: Column(
                       children: <Widget>[
                         CircleAvatar(
                           backgroundImage:
-                          AssetImage("assets/images/imran.jpeg"),
+                              AssetImage("assets/images/imran.jpeg"),
                           radius: 60.0,
                         ),
                         //       Expanded(
@@ -100,7 +103,6 @@ class GetCarBackState extends State<StatefulWidget> {
                             ),
                           ),
                         ),
-
                       ],
                     ),
                   ) /* add child content content here */,
@@ -125,7 +127,10 @@ class GetCarBackState extends State<StatefulWidget> {
             icon: Icon(Icons.call),
             onPressed: () => print("c"),
           ),
-          IconButton(icon: Icon(Icons.message), onPressed: () => Navigator.of(context).pushNamed(Routes.valet_track)),
+          IconButton(
+              icon: Icon(Icons.message),
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(Routes.valet_track)),
         ],
       ),
     );
