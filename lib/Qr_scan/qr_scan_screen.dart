@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
+import 'package:snap_valet/global.dart';
 
 class QrScanPage extends StatefulWidget {
   @override
@@ -22,9 +23,11 @@ class _QrScanPageState extends State<QrScanPage> {
       appBar: new AppBar(
         title: new Text('Recieve car'),
       ),
+      bottomNavigationBar: getBottomAppBar(context),
       body: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
+
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(bottom: 64.0),
@@ -51,28 +54,6 @@ class _QrScanPageState extends State<QrScanPage> {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: BottomAppBar(
-        hasNotch: false,
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            new IconButton(
-              icon: new Icon(
-                Icons.menu,
-                color: Colors.transparent,
-              ),
-              onPressed: () => {},
-            ),
-            new IconButton(
-              icon: new Icon(
-                Icons.apps,
-                color: Colors.transparent,
-              ),
-              onPressed: () => {},
-            ),
-          ],
-        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: scan,
@@ -118,5 +99,20 @@ class _QrScanPageState extends State<QrScanPage> {
     } catch (e) {
       setState(() => this.barcode = 'Unknown error: $e');
     }
+  }
+
+  BottomAppBar getBottomAppBar(BuildContext context) {
+    return BottomAppBar(
+      hasNotch: false,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          IconButton(icon: Icon(Icons.forward), onPressed: () {
+            Navigator.of(context).pushNamed(Routes.payment);}
+          ),
+        ],
+      ),
+    );
   }
 }
