@@ -6,19 +6,62 @@ import 'package:snap_valet/contact_back/contact_back_screen.dart';
 import 'package:snap_valet/global.dart';
 import 'package:snap_valet/theme.dart';
 
-void main() => runApp(new MaterialApp(
-    title: "SnapV",
-    theme: kSnapVTheme,
-    home: BookValet(valet: Valet(valetID: "imran")),
-      routes: {
-      Routes.valet_info: (context) => new BookValet(),
-      Routes.valet_track:(context)=>new GetCarBack(valet: Valet(valetID: "imran")),
-      Routes.qr_scan:(context)=>new QrScanPage()}),
-
-
+void main() => runApp(
+      new MaterialApp(
+          title: "SnapV",
+          theme: kSnapVTheme,
+          home: HomePage(),
+          routes: {
+            Routes.valet_info: (context) => new BookValet(),
+            Routes.valet_track: (context) =>
+                new GetCarBack(valet: Valet(valetID: "imran")),
+            Routes.qr_scan: (context) => new QrScanPage()
+          }),
     ); // comment check
 
-
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/images/map.jpg',
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 32.0, horizontal: 16.0),
+            child: SizedBox.fromSize(
+              size: Size.fromHeight(64.0),
+              child: Column(
+                children: <Widget>[
+                  Card(
+                    child: ListTile(
+                      trailing: const Icon(Icons.search),
+                      title: TextField(
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Search a location',
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        icon: const Icon(Icons.person),
+        label: const Text('Request a valet'),
+        onPressed: () => Navigator.pushNamed(context, Routes.valet_info),
+      ),
+    );
+  }
+}
 
 //import 'package:flutter/material.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';

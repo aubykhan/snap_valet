@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:snap_valet/book_valet/model.dart';
 import 'package:snap_valet/global.dart';
 
-
 class BookValet extends StatefulWidget {
   BookValet({Key key, this.valet}) : super(key: key);
 
@@ -37,35 +36,48 @@ class BookValetState extends State<StatefulWidget> {
         body: StreamBuilder(
           stream: documentReference.snapshots(),
           builder: (context, snapshots) {
+            if (!snapshots.hasData ||
+                snapshots.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: const CircularProgressIndicator(),
+              );
+            }
             return Stack(
               fit: StackFit.expand,
               children: <Widget>[
                 Image.asset(
                   'assets/images/map.jpg',
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.cover,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    SizedBox(
-                      width: 150.0,
-                      child: Card(
-                      // shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(40.0)),
-                        elevation: 8.0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: <Widget>[
-                              Image.asset('assets/images/imran.jpeg',),
-                              Text("${snapshots.data["name"]}",
-                                  style: Theme.of(context).textTheme.title),
-                              SizedBox(
-                                height: 4.0,
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0)),
+                      elevation: 8.0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: <Widget>[
+                            CircleAvatar(
+                              radius: 60.0,
+                              backgroundImage: AssetImage(
+                                'assets/images/imran.jpeg',
                               ),
-                              Text("${snapshots.data["id"]}",
-                                  style: Theme.of(context).textTheme.caption),
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 16.0,
+                            ),
+                            Text("${snapshots.data["name"]}",
+                                style: Theme.of(context).textTheme.title),
+                            SizedBox(
+                              height: 4.0,
+                            ),
+                            Text("${snapshots.data["id"]}",
+                                style: Theme.of(context).textTheme.caption),
+                          ],
                         ),
                       ),
                     ),
@@ -73,6 +85,7 @@ class BookValetState extends State<StatefulWidget> {
                       padding: const EdgeInsets.only(bottom: 40.0),
                       child: Text(
                         "ETA: ${snapshots.data["timeToReach"]} minutes",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.w800,
@@ -156,7 +169,10 @@ class BookValetState extends State<StatefulWidget> {
             icon: Icon(Icons.call),
             onPressed: () => print("c"),
           ),
-          IconButton(icon: Icon(Icons.message), onPressed: ()=>Navigator.of(context).pushNamed(Routes.valet_track)),
+          IconButton(
+              icon: Icon(Icons.message),
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(Routes.valet_track)),
         ],
       ),
     );
