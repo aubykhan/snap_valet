@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_valet/Qr_scan/qr_scan_screen.dart';
 import 'package:snap_valet/book_valet/book_valet_screen.dart';
 import 'package:snap_valet/book_valet/model.dart';
 import 'package:snap_valet/contact_back/contact_back_screen.dart';
@@ -12,9 +13,10 @@ void main() => runApp(new MaterialApp(
       routes: {
       Routes.valet_info: (context) => new BookValet(),
       Routes.valet_track:(context)=>new GetCarBack(valet: Valet(valetID: "imran")),
-      },
-    )); // comment check
+      Routes.qr_scan:(context)=>new QrScanPage()}),
 
+
+    ); // comment check
 
 
 

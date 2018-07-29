@@ -23,6 +23,13 @@
             </list>
           </value>
         </entry>
+        <entry key="barcode_scan">
+          <value>
+            <list>
+              <option value="E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/barcode_scan-0.0.4/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="boolean_selector">
           <value>
             <list>
@@ -400,6 +407,7 @@
       <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.31.2-alpha.2/lib" />
       <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/args-1.4.3/lib" />
       <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.0.7/lib" />
+      <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/barcode_scan-0.0.4/lib" />
       <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-1.0.3/lib" />
       <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.1.1/lib" />
       <root url="file://E:/Research/Flutter/flutter_windows_v0.2.8-beta/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.7.4/lib" />
