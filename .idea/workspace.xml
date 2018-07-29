@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85b47845-bdf7-489f-9842-5987d05913ec" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/contact_back/contact_back_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/book_valet/book_valet_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/book_valet/book_valet_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +41,8 @@
       <file leaf-file-name="book_valet_screen.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/book_valet/book_valet_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+            <state relative-caret-position="264">
+              <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -117,8 +115,8 @@
         <option value="$PROJECT_DIR$/lib/book_valet/model.dart" />
         <option value="$PROJECT_DIR$/lib/theme.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/book_valet/book_valet_screen.dart" />
         <option value="$PROJECT_DIR$/lib/contact_back/contact_back_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/book_valet/book_valet_screen.dart" />
       </list>
     </option>
   </component>
@@ -296,10 +294,18 @@
       <updated>1532798653339</updated>
       <workItem from="1532798719542" duration="6524000" />
     </task>
+    <task id="LOCAL-00001" summary="valet info screen">
+      <created>1532839406252</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532839406252</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9080000" />
+    <option name="totallyTimeSpent" value="9664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -327,11 +333,11 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" />
       <window_info anchor="right" id="Capture Analysis" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Version Control" weight="0.32838285" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Captures" weight="0.32980332" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info anchor="right" id="Theme Preview" order="10" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="right" id="Flutter Inspector" order="12" weight="0.32980332" />
@@ -419,7 +425,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adder firestore" />
-    <option name="LAST_COMMIT_MESSAGE" value="adder firestore" />
+    <MESSAGE value="valet info screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="valet info screen" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
@@ -591,8 +598,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/book_valet/book_valet_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        <state relative-caret-position="264">
+          <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

@@ -12,13 +12,15 @@ class BookValet extends StatefulWidget {
 }
 
 class BookValetState extends State<StatefulWidget> {
-  var documentReference = Firestore.instance.collection('valets');
-  DocumentReference docReference;
+  var documentReference;
+ /// DocumentReference docReference;
 
   @override
   void initState() {
     super.initState();
-    docReference = documentReference.document("imran");
+   // docReference = documentReference.document("imran");
+    documentReference = Firestore.instance.collection('valets').document("imran");
+
   }
 
   @override
@@ -30,7 +32,7 @@ class BookValetState extends State<StatefulWidget> {
         bottomNavigationBar: getBottomAppBar(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: StreamBuilder(
-            stream: docReference.snapshots(),
+            stream: documentReference.snapshots(),
             builder: (context, snapshots) {
               //if (!snapshots.hasData) return const Text('Loading...');
               return Center(
@@ -63,7 +65,7 @@ class BookValetState extends State<StatefulWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
                               Text(
-                                "Name: imran",
+                                "Name: ${snapshots.data["name"]}",
                                 style: TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.w500,
@@ -71,7 +73,7 @@ class BookValetState extends State<StatefulWidget> {
                                 ),
                               ),
                               Text(
-                                "Id: 0123456789",
+                                "Id: ${snapshots.data["id"]}",
                                 style: TextStyle(
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.w500),
@@ -86,10 +88,10 @@ class BookValetState extends State<StatefulWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Text(
-                                  "ETA: 3 minutes",
+                                  "ETA: ${snapshots.data["timeToReach"]} minutes",
                                   style: TextStyle(
                                       fontSize: 20.0,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w800,
                                       color: Colors.green),
                                 ),
                               ],
