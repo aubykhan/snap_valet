@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:snap_valet/book_valet/model.dart';
+import 'package:snap_valet/global.dart';
+
 
 class BookValet extends StatefulWidget {
   BookValet({Key key, this.valet}) : super(key: key);
@@ -13,14 +15,15 @@ class BookValet extends StatefulWidget {
 
 class BookValetState extends State<StatefulWidget> {
   var documentReference;
- /// DocumentReference docReference;
+
+  /// DocumentReference docReference;
 
   @override
   void initState() {
     super.initState();
-   // docReference = documentReference.document("imran");
-    documentReference = Firestore.instance.collection('valets').document("imran");
-
+    // docReference = documentReference.document("imran");
+    documentReference =
+        Firestore.instance.collection('valets').document("imran");
   }
 
   @override
@@ -32,91 +35,109 @@ class BookValetState extends State<StatefulWidget> {
         bottomNavigationBar: getBottomAppBar(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: StreamBuilder(
-            stream: documentReference.snapshots(),
-            builder: (context, snapshots) {
-              //if (!snapshots.hasData) return const Text('Loading...');
-              return Center(
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/map.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Container(
-                    child: Column(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage("assets/images/imran.jpeg"),
-                          radius: 60.0,
-                        ),
-                        //       Expanded(
-                        // child:
-                        Container(
-//                            height: 10.0,
-//                            width: 20.0,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: Colors.white,
-                            // border: Border.all(color: Colors.black,width: 1.0)
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          stream: documentReference.snapshots(),
+          builder: (context, snapshots) {
+            return Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/map.jpg',
+                  fit: BoxFit.fitWidth,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 150.0,
+                      child: Card(
+                      // shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(40.0)),
+                        elevation: 8.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
                             children: <Widget>[
-                              Text(
-                                "Name: ${snapshots.data["name"]}",
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
-                                ),
+                              Image.asset('assets/images/imran.jpeg',),
+                              Text("${snapshots.data["name"]}",
+                                  style: Theme.of(context).textTheme.title),
+                              SizedBox(
+                                height: 4.0,
                               ),
-                              Text(
-                                "Id: ${snapshots.data["id"]}",
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.w500),
-                              ),
+                              Text("${snapshots.data["id"]}",
+                                  style: Theme.of(context).textTheme.caption),
                             ],
                           ),
                         ),
-                        //   ),
-                        Expanded(
-                          child: Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Text(
-                                  "ETA: ${snapshots.data["timeToReach"]} minutes",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w800,
-                                      color: Colors.green),
-                                ),
-                              ],
-                            ),
-                          ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40.0),
+                      child: Text(
+                        "ETA: ${snapshots.data["timeToReach"]} minutes",
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.green,
                         ),
-
-//                        Center(
-//                          child: ButtonBar(
-//                            mainAxisSize: MainAxisSize.max,
-//                            alignment: MainAxisAlignment.center,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            );
+            //if (!snapshots.hasData) return const Text('Loading...');
+//              return Stack(
+//                fit: StackFit.expand,
+//                children: <Widget>[
+//                Image.asset('assets/images/map.jpg',fit:BoxFit.fitWidth,),
+//                Card(
+//                  child:  Column(
+//                      mainAxisSize: MainAxisSize.min,
+//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                      children: <Widget>[
+//                        CircleAvatar(
+//                          backgroundImage:
+//                          AssetImage("assets/images/imran.jpeg"),
+//                          radius: 60.0,
+//                        ),
+//                        //       Expanded(
+//                        // child:
+//                        Container(
+////                            height: 10.0,
+////                            width: 20.0,
+//                          decoration: BoxDecoration(
+//                            shape: BoxShape.rectangle,
+//                            color: Colors.white,
+//                            // border: Border.all(color: Colors.black,width: 1.0)
+//                          ),
+//                          child: Row(
+//                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //                            children: <Widget>[
-//                              IconButton(
-//                                  icon: Icon(Icons.call),iconSize: 40.0, onPressed: () => {}),
-//                              IconButton(
-//                                  icon: Icon(Icons.message),iconSize: 40.0, onPressed: () => {}),
+//                              Text(
+//                                "Name: ${snapshots.data["name"]}",
+//                                style: TextStyle(
+//                                  fontSize: 20.0,
+//                                  fontWeight: FontWeight.w500,
+//                                  color: Colors.black,
+//                                ),
+//                              ),
+//                              Text(
+//                                "Id: ${snapshots.data["id"]}",
+//                                style: TextStyle(
+//                                    fontSize: 20.0,
+//                                    fontWeight: FontWeight.w500),
+//                              ),
 //                            ],
 //                          ),
-//                        )
-                      ],
-                    ),
-                  ) /* add child content content here */,
-                ),
-              );
-            }),
+//                        ),
+//                      ],
+//                    ),
+//                  ),
+//                )
+//               ,
+//              ],
+//              );
+          },
+        ),
         floatingActionButton: FloatingActionButton.extended(
           elevation: 4.0,
           icon: const Icon(Icons.cancel),
@@ -135,7 +156,7 @@ class BookValetState extends State<StatefulWidget> {
             icon: Icon(Icons.call),
             onPressed: () => print("c"),
           ),
-          IconButton(icon: Icon(Icons.message), onPressed: () => print("m")),
+          IconButton(icon: Icon(Icons.message), onPressed: ()=>Navigator.of(context).pushNamed(Routes.valet_track)),
         ],
       ),
     );

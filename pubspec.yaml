@@ -13,6 +13,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   cloud_firestore: ^0.7.3     # new
+  url_launcher: ^3.0.3
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
