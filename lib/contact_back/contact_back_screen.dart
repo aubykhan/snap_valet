@@ -36,7 +36,7 @@ class GetCarBackState extends State<StatefulWidget> {
         body: StreamBuilder(
             stream: documentReference.snapshots(),
             builder: (context, snapshots) {
-              //if (!snapshots.hasData) return const Text('Loading...');
+              if (!snapshots.hasData) return const Text('Loading...');
               return Center(
                 child: Container(
                       decoration: BoxDecoration(
