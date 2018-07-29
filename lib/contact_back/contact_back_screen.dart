@@ -14,6 +14,7 @@ class GetCarBack extends StatefulWidget {
 
 class GetCarBackState extends State<StatefulWidget> {
   var documentReference;
+  String etaText="";
   /// DocumentReference docReference;
 
   @override
@@ -21,6 +22,7 @@ class GetCarBackState extends State<StatefulWidget> {
     super.initState();
     // docReference = documentReference.document("imran");
     documentReference = Firestore.instance.collection('valets').document("imran");
+    etaText="  ";
 
   }
 
@@ -34,79 +36,55 @@ class GetCarBackState extends State<StatefulWidget> {
         bottomNavigationBar: getBottomAppBar(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: StreamBuilder(
-            stream: documentReference.snapshots(),
-            builder: (context, snapshots) {
-              //if (!snapshots.hasData) return const Text('Loading...');
-              return Center(
-                child: Container(
-                      decoration: BoxDecoration(
-                      image: DecorationImage(
-                      image: AssetImage("assets/images/map.jpg"),
-                      fit: BoxFit.cover,
-                      ),
-                      ),
-                  child: Container(
-                    child: Column(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage:
-                          AssetImage("assets/images/imran.jpeg"),
-                          radius: 60.0,
-                        ),
-                        //       Expanded(
-                        // child:
-                        Container(
-//                            height: 10.0,
-//                            width: 20.0,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: Colors.white,
-                            // border: Border.all(color: Colors.black,width: 1.0)
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          stream: documentReference.snapshots(),
+          builder: (context, snapshots) {
+            return Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/map.jpg',
+                  fit: BoxFit.fitWidth,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 300.0,
+                      height: 140.0,
+                      child: Card(
+                         shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(40.0)),
+                        elevation: 8.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
                             children: <Widget>[
-                              Text(
-                                "Name: ${snapshots.data["name"]}",
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              Text(
-                                "Id: ${snapshots.data["id"]}",
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.w500),
+                              Text("Your car is now parked, press Get car back at any time to drive your car back to valet",
+                                  style: Theme.of(context).textTheme.title),
+                              SizedBox(
+                                height: 4.0,
                               ),
                             ],
                           ),
                         ),
-                        //   ),
-                        Expanded(
-                          child: Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Text(
-                                  "ETA: ${snapshots.data["timeToReach"]} minutes",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w800,
-                                      color: Colors.green),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                      ],
+                      ),
                     ),
-                  ) /* add child content content here */,
-                ),
-              );
-            }),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40.0),
+                      child: Text(
+                        etaText,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.green,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            );
+          },
+        ),
         floatingActionButton: FloatingActionButton.extended(
           elevation: 4.0,
           icon: const Icon(Icons.get_app),
@@ -125,7 +103,10 @@ class GetCarBackState extends State<StatefulWidget> {
             icon: Icon(Icons.call),
             onPressed: () => print("c"),
           ),
-          IconButton(icon: Icon(Icons.message), onPressed: () => Navigator.of(context).pushNamed(Routes.qr_scan)),
+          IconButton(icon: Icon(Icons.message), onPressed: () {
+
+            Navigator.of(context).pushNamed(Routes.qr_scan);}
+            ),
         ],
       ),
     );

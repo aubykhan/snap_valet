@@ -32,6 +32,7 @@ flutter:
   assets:
     - assets/images/map.jpg
     - assets/images/imran.jpeg
+    - assets/images/img_qr_border.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

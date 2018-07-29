@@ -84,58 +84,6 @@ class BookValetState extends State<StatefulWidget> {
                 )
               ],
             );
-            //if (!snapshots.hasData) return const Text('Loading...');
-//              return Stack(
-//                fit: StackFit.expand,
-//                children: <Widget>[
-//                Image.asset('assets/images/map.jpg',fit:BoxFit.fitWidth,),
-//                Card(
-//                  child:  Column(
-//                      mainAxisSize: MainAxisSize.min,
-//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                      children: <Widget>[
-//                        CircleAvatar(
-//                          backgroundImage:
-//                          AssetImage("assets/images/imran.jpeg"),
-//                          radius: 60.0,
-//                        ),
-//                        //       Expanded(
-//                        // child:
-//                        Container(
-////                            height: 10.0,
-////                            width: 20.0,
-//                          decoration: BoxDecoration(
-//                            shape: BoxShape.rectangle,
-//                            color: Colors.white,
-//                            // border: Border.all(color: Colors.black,width: 1.0)
-//                          ),
-//                          child: Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                            children: <Widget>[
-//                              Text(
-//                                "Name: ${snapshots.data["name"]}",
-//                                style: TextStyle(
-//                                  fontSize: 20.0,
-//                                  fontWeight: FontWeight.w500,
-//                                  color: Colors.black,
-//                                ),
-//                              ),
-//                              Text(
-//                                "Id: ${snapshots.data["id"]}",
-//                                style: TextStyle(
-//                                    fontSize: 20.0,
-//                                    fontWeight: FontWeight.w500),
-//                              ),
-//                            ],
-//                          ),
-//                        ),
-//                      ],
-//                    ),
-//                  ),
-//                )
-//               ,
-//              ],
-//              );
           },
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -156,7 +104,7 @@ class BookValetState extends State<StatefulWidget> {
             icon: Icon(Icons.call),
             onPressed: () => print("c"),
           ),
-          IconButton(icon: Icon(Icons.message), onPressed: ()=>Navigator.of(context).pushNamed(Routes.valet_track)),
+          IconButton(icon: Icon(Icons.message), onPressed: ()=>Navigator.of(context).pushNamed(Routes.qr_image)),
         ],
       ),
     );

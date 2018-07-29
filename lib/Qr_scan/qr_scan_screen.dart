@@ -20,7 +20,7 @@ class _QrScanPageState extends State<QrScanPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Handover car'),
+        title: new Text('Recieve car'),
       ),
       body: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
