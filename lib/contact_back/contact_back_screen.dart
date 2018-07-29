@@ -129,8 +129,7 @@ class GetCarBackState extends State<StatefulWidget> {
           ),
           IconButton(
               icon: Icon(Icons.message),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed(Routes.valet_track)),
+              onPressed: () => Navigator.of(context).pushNamed(Routes.qr_scan)),
         ],
       ),
     );
