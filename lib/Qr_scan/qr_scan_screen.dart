@@ -72,9 +72,8 @@ class _QrScanPageState extends State<QrScanPage> {
         context: context,
         builder: (context) => new AlertDialog(
           title: ListTile(
-            leading: Icon(Icons.directions_bike),
-            title: Text('Bike $barcode unlocked!'),
-            subtitle: Text('Enjoy your ride!'),
+            leading: Icon(Icons.directions_car),
+            title: Text('car $barcode reciever by owner!'),
           ),
           actions: <Widget>[
             new FlatButton(

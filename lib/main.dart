@@ -20,7 +20,8 @@ void main() => runApp(
         new GetCarBack(valet: Valet(valetID: "imran")),
         Routes.qr_scan:(context)=>new QrScanPage(),
         Routes.qr_image:(context)=>new QrImagePage('', '', 0.0),
-        Routes.payment:(context)=>new PaymentPage()
+        Routes.payment:(context)=>new PaymentPage(),
+        Routes.home:(context)=>new HomePage()
       }),
 ); // comment check
 

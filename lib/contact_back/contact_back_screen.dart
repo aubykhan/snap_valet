@@ -66,7 +66,7 @@ class GetCarBackState extends State<StatefulWidget> {
                           child: Column(
                             children: <Widget>[
                               Text(
-                                  "Your car is now parked, press Get car back at any time to drive your car back to valet",
+                                  "Your car is now parked, press Get car back at any time for valet to drive your car back to you",
                                   style: Theme.of(context).textTheme.title),
                               SizedBox(
                                 height: 4.0,
@@ -130,7 +130,7 @@ BottomAppBar getBottomAppBar(BuildContext context) {
           onPressed: () => print("c"),
         ),
         IconButton(
-            icon: Icon(Icons.message),
+            icon: Icon(Icons.forward),
             onPressed: () {
               Navigator.of(context).pushNamed(Routes.qr_scan);
             }),

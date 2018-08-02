@@ -156,6 +156,7 @@ class BookValetState extends State<StatefulWidget> {
           elevation: 4.0,
           icon: const Icon(Icons.cancel),
           label: new Text("Cancel"),
+          onPressed: ()=>Navigator.of(context).pushNamed(Routes.home),
         ));
   }
 
@@ -170,7 +171,7 @@ class BookValetState extends State<StatefulWidget> {
             icon: Icon(Icons.call),
             onPressed: () => print("c"),
           ),
-          IconButton(icon: Icon(Icons.message), onPressed: ()=>Navigator.of(context).pushNamed(Routes.qr_image)),
+          IconButton(icon: Icon(Icons.forward), onPressed: ()=>Navigator.of(context).pushNamed(Routes.qr_image)),
         ],
       ),
     );

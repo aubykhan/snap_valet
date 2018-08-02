@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_valet/global.dart';
 
 class PaymentPage extends StatefulWidget {
   @override
@@ -74,7 +75,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   children: <Widget>[
                     ListTile(
                       leading: Icon(Icons.attach_money),
-                      title: Text('Rs. 250'),
+                      title: Text('Rs. 50'),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
@@ -109,7 +110,8 @@ class _PaymentPageState extends State<PaymentPage> {
             actions: <Widget>[
               new FlatButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushNamed(Routes.home);
                 },
                 child: Text('OK'),
               )
